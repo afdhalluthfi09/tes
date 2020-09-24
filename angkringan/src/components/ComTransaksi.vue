@@ -3,6 +3,14 @@
      <v-simple-table height="300px">
          <template v-slot:default>
         <tr>
+            <td>id pesan :</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>tanggal pemesanan</td>
+            <td>{{tgl}}</td>
+        </tr>
+        <tr>
             <td>no.</td>
             <td>nama item</td>
             <td>harga</td>
@@ -15,8 +23,16 @@
             <td>{{ item.item }}</td>
             <td>{{ item.harga }}</td>
             <td>{{ item.qty}}</td>
-            <td>{{ jmlhTot }}</td>
+            <td>{{ item.qty * item.harga }}</td>
             <td>{{ item.keterangan }}</td>
+        </tr>
+        <tr>
+            <td>jumlah pesanan</td>
+            <td>{{ jml }}</td>
+        </tr>
+        <tr>
+            <td>harga total :</td>
+            <td>{{jumlhTot}}</td>
         </tr>
          </template>
      </v-simple-table>
@@ -33,6 +49,9 @@ export default {
         },
         jml(){
             return this.card.reduce( (a, b) => a + b.qty, 0)
+        },
+        tgl(){
+            return Date()
         }
     }
 }

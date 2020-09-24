@@ -1,16 +1,16 @@
 <template>
   <div>
-      <ComTransaksi/>
+    <ComTransaksi />
   </div>
 </template>
 
 <script>
-import ComTransaksi from '../components/ComTransaksi'
+import ComTransaksi from "../components/ComTransaksi";
 export default {
-    components:{
-        ComTransaksi
-    }
-}
+  components: {
+    ComTransaksi
+  }
+};
 </script>
 
 <style>
