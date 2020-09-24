@@ -20,7 +20,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in card" :key="item.id">
+                <tr v-for="(item, index) in card" :key="item.id"  >
                   <th>{{ index+1}}</th>
                   <td>{{ item.item }}</td>
                   <td>{{ item.keterangan }}</td>
@@ -42,7 +42,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="primary" text @click="dialog = false">Batal</v-btn>
-            <v-btn color="primary" text @click="dialog = false" to="/transaction_success">Lanjutkan</v-btn>
+            <v-btn color="primary" text @click="pushTrans(item.id)" to="./transaction_success">Lanjutkan</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters} from "vuex";
 export default {
   data() {
     return {
@@ -65,9 +65,15 @@ export default {
     },
     jumlahPesanan() {
       return this.card.reduce((a, b) => a + b.qty, 0);
+    },
+    ambil(){
+      return this.$store.getters.card
     }
-  }
+    
+   }
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

@@ -52,6 +52,16 @@ const routes = [
     path:"/transaksi",
     name:"Transaksi",
     component:()=> import(/** webpackChunkName: "transaksi" */ "../views/Transaksi.vue") 
+  },
+  {
+    path:"/tes",
+    name:"Tes",
+    component:()=>import(/** webpackChunkName: "tes" */ "../views/TestTransaksi.vue")
+  },
+  {
+    path:"/selesai",
+    name:"Selesai",
+    component:()=>import(/** webpackChunkname: "selesai" */ "../components/wait.vue")
   }
 ];
 

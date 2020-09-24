@@ -9,7 +9,7 @@
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
-              @click="addItemToCard(mn), (snackbar = true)"
+              @click="addItemToCard(mn.id),(snackbar = true)"
             >
               <v-card-title>{{ mn.item }}</v-card-title>
             </v-img>
@@ -53,13 +53,14 @@ export default {
     },
     cart() {
       return this.$store.getters.card;
-    }
+    },
+    
   },
   methods: {
     ...mapActions(["addItemToCard"])
   },
   mounted() {
-    console.log(this.cart);
+    console.log(this.trans);
   }
 };
 </script>

@@ -3,7 +3,7 @@
      <v-simple-table height="300px">
          <template v-slot:default>
         <tr>
-            <td>id pesan :</td>
+            <td>id pesan : # {{idPesan}}</td>
             <td></td>
         </tr>
         <tr>
@@ -36,6 +36,8 @@
         </tr>
          </template>
      </v-simple-table>
+     <v-btn>batal</v-btn>
+     <v-btn to="/selesai">lunas</v-btn>
   </div>
 </template>
 
@@ -52,6 +54,9 @@ export default {
         },
         tgl(){
             return Date()
+        },
+        idPesan(){
+            return Math.floor(Math.random()*300)
         }
     }
 }

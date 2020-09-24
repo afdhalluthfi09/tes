@@ -276,6 +276,7 @@ export default new Vuex.Store({
     },
     card: [],
     ket: "",
+    trans:[]
   },
 
   getters: {
@@ -288,6 +289,9 @@ export default new Vuex.Store({
     card: (state) => {
       return state.card;
     },
+    trans:(state)=>{
+      return state.trans;
+    }
     // keterangan: (state) => {
     //   return state.keterangan;
     // },
@@ -308,6 +312,9 @@ export default new Vuex.Store({
     addNotesToCard({ commit, id }) {
       commit("addKeterangan", id);
     },
+    pushTrans({commit},item){
+      commit("transL", item)
+    }
   },
   mutations: {
     addItem(state, item) {
@@ -324,6 +331,20 @@ export default new Vuex.Store({
     bindingKet(state, value) {
       state.ket = value;
     },
+
+    // === percobaan ===
+
+    /**copy data */
+    transL(state,item){
+      const cpys = state.trans.find((product) => product.id === item.id);
+      // state.trans.push({...item, qty: 1})
+      if(cpys){
+        this.state.trans.push({...item, qty:1})
+      }
+    },
+
+    // === ********* ===
+
     addListM(state, id) {
       let list = state.card.find((product) => product.id === id);
       list.qty++;
